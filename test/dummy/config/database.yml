@@ -1,0 +1,29 @@
+# example_travisci_multi/config/database.yml
+sqlite: &sqlite
+  adapter: sqlite3
+  database: db/test.sqlite3
+
+mysql: &mysql
+  adapter: mysql2
+  username: root
+  password:
+
+postgresql: &postgresql
+  adapter: postgresql
+  username: dixpac
+  password:
+  min_messages: ERROR
+
+defaults: &defaults
+  pool: 100
+  timeout: 5000
+  host: localhost
+  <<: *<%= "postgresql" %>
+
+development:
+  database: trinh_test
+  <<: *defaults
+
+test:
+  database: trinh_test
+  <<: *defaults
