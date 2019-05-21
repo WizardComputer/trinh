@@ -60,8 +60,8 @@ module Trinh
     end
 
     def max_number
-      start_date = Date.today.beginning_of_day
-      end_date = Date.today.end_of_day
+      start_date = Time.zone.today.beginning_of_day
+      end_date = Time.zone.today.end_of_day
       build_scope(*scope) do
         base_relation.
         where(created_at: start_date..end_date)
